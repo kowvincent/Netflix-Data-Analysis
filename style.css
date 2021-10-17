@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Martel+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  display: flex;
+  font-family: "Inconsolata", sans-serif;
+
+  background-color: rgba(8, 8, 8, 0.89);
+}
+
+
+.container1 {
+  width: 100%;
+  min-height: 460px;
+  background-color: black;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.container1 img {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  object-fit: contain;
+  object-position: center;
+  align-self: center;
+
+  max-width: 100%;
+  height: 350px;
+}
+
+
+
+
+.text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: center;
+  align-content: center;
+}
+.text p {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  
+}
+
+.text h1 {
+  font-size: 2.5rem;
+  
+}
+
+
+.header {
+	padding: 1px;
+	text-align: center;
+    align-items: center;
+    width: 100%;
+	background: rgba(8, 8, 8, 0.89);
+	color: white;
+	font-size: 2.8rem;
+    font-family: "Bebas Neue"
+    
+}
+.yes {
+    color: #E50914;
+    
+}
+
+.netflix {
+  color:#E50914;
+  
+}
+.darkred {
+  color:#A90011;
+}
+.lightred{
+  color: #FBEBD8;
+}

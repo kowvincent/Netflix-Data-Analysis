@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="visuals.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+    <title> Netflix </span> Data Analytics</title>
+
+</head>
+<body>
+
+  <div class="header"> 
+    <h1><span class="yes">Netflix</span> Data Analysis</h1>
+  
+  </div>
+
+
+
+    <div class="container1">
+        <div class="text">
+          <h1> Netflix subscribers by country
+            </h1>
+            <p>
+                This is a chloropleth map to understand Netflix's <br>subscribers demographic. 
+                By <span class="netflix">hovering</span> over the <br>country, the numbers of subscribers are shown. <br>
+                In 2021, <span class="netflix">Norway</span> has the highest % of population <br>with a Netflix Subscription of 37%
+                
+            </p>
+        </div>
+        <div class="image">
+            <div id="choropleth_map"></div>
+        </div>
+      </div>
+      <div class="container1">
+          
+          <div class="image">
+            <div id="streaming_chart"></div>
+          </div>
+          <div class="text">
+              <h1>Streaming services subscription  ranking
+                </h1>
+                <p>
+                    This is a bar chart to compare between streaming services <br>subscribers. In 2021, Netflix has a total of <span class="netflix">203 million <br>subscribers </span>. The average Netflix subscribers watches 3.2 <br>hours of videos everyday.The US susbscribers alone has <br>collectively viewed <span class="netflix">204 millions hours </span>of content in 2021.
+                </p>
+            </div>
+            
+        </div>
+        <div class="container1">
+            <div class="text">
+              <h1>Movies/TV Shows released over the years
+
+                </h1>
+                <p>
+                    This is a steam graph to show the content released <br>
+                    over the years by Netflix. In 2021, Netflix has  <br>
+                    released over <span class="netflix">8407 of Movies/TV Shows.</span> We extracted the 
+                    <br>top 10 countries that has released the most 
+                    content <br>ranging from <span class="darkred">darkest </span> as <span class="netflix">most </span>to 
+                    <span class="lightred">lightest</span> as <span class="netflix">least.</span> <br>
+                    By <span class="netflix">hovering </span>over the color, the number of content <br>released are shown
+
+                </p>
+            </div>
+            <div class="image">
+
+                <div id="steam"></div>
+            </div>
+          </div>
+
+          <div class="container1">
+          
+            <div class="image">
+              <div id="alluvial"></div>
+            </div>
+            <div class="text">
+                <h1> Genre Type
+                  </h1>
+                  <p>
+                      This is a sankey diagram to show the genres of Movies
+                      <br> and TV Shows. By <span class="netflix">hovering </span>and <span class="netflix">clicking </span>on the genre type <br>
+                      the numbers and percentage of genres will be shown. 
+                  </p>
+              </div>
+              
+          </div>
+        
+          
+  </body>
+</html>
+
+
+</body>
+</html>

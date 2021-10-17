@@ -1,0 +1,77 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "#00000",
+     "height": 300,
+    "width": 600,
+    "data": {"url": "https://raw.githubusercontent.com/kowvincent/H9/main/top10.csv"},
+     "transform": [
+       {"filter": "datum.release_year > '1980'"}
+  
+      
+       ],
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "timeUnit": "year", "field": "release_year",
+        "title":"Year",
+        "axis": {"domain": false, "format": "%Y", "tickSize": 0,"grid": false, 
+             "labelColor": "#ffffff",
+             "labelFont":"Helvetica",      
+             "titleColor": "#ffffff",
+             "titleFont": "Helvetica",
+             "domainOpacity": 1}
+        
+      },
+      "y": {
+        "aggregate": "count", "field":"show_id",
+        "axis": {"grid": false, 
+              "labelColor": "#ffffff",
+              "labelFont":"Helvetica ", 
+              "titleColor": "#ffffff",
+              "titleFont": "Helvetica",
+              "domainOpacity": 1},
+        "stack": "center"
+      },
+      "color": {"field":"country", "scale":{"scheme": "reds"},
+       "legend": {
+              "labelColor": "#ffffff",
+              "labelFont":"Helvetica ",
+              "titleColor": "#ffffff",
+              "titleFont": "Helvetica"
+              }},
+              
+      "tooltip": [
+                      {
+                          "field": "release_year",
+                          "title": "Year",
+                          "timeUnit": "year"
+                      },
+                        {
+                          "field": "country",
+                          "title": "Country"
+                         
+                      },
+                      {
+                        "aggregate": "count",
+                          "field": "show_id",
+                          "title": "Movie/TV Show Count"
+                      }
+                      
+      ]
+    },
+    "params": [{
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": ["release_year"],
+            "nearest": true,
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }]
+      }
+    
+      
+  
+  
+  
