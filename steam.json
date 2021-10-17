@@ -24,6 +24,7 @@
       },
       "y": {
         "aggregate": "count", "field":"show_id",
+          "tittle":"",
         "axis": {"grid": false, 
               "labelColor": "#ffffff",
               "labelFont":"Helvetica ", 
