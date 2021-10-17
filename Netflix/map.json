@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 400,
+  "width": 700,
+  "data": {
+      "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+      "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
+  },
+  "projection": { "type": "equalEarth" },
+  "params": [{
+                  "name": "domain_range",
+                  "value": {
+
+                      "# of Netflix Subscribers": [2420000, 40000000, 61000000],
+                      "% of Population with a Netflix Subscription": [10 ,20, 40]
+                  }
+              }],
+  "layer": [{
+          "transform": [
+              { "calculate": "'Data is not available in ' + datum.properties.NAME", "as": "note" }
+          ],
+          "mark": { "type": "geoshape", "fill": "#919191", "stroke": "#919191" },
+          "encoding": {
+              "tooltip": {
+                  "field": "note"
+              }
+          }
+      },
+
+      {
+          "params": [
+              {
+                  "name": "selection",
+                  "select": { "type": "point", "fields": ["key"] },
+                  "value": [{ "key": "% of Population with a Netflix Subscription" }],
+                  "bind": {
+                      "input": "select",
+                      "options": ["% of Population with a Netflix Subscription", "# of Netflix Subscribers" ]
+                  }
+              }
+          ],
+          "transform": [{
+                  "lookup": "properties.NAME",
+                  "from": {
+                      "data": {
+                          "url": "https://raw.githubusercontent.com/kowvincent/Netflix/main/data-maJKR.csv"
+                      },
+                      "key": "Country",
+                      "fields": ["% of Population with a Netflix Subscription", "# of Netflix Subscribers", "Population"]
+                  }
+              },
+              { "fold": ["% of Population with a Netflix Subscription", "# of Netflix Subscribers", "Population"] },
+              { "filter": { "param": "selection" } }
+
+          ],
+
+          "mark": { "type": "geoshape" },
+          "encoding": {
+              "color": {
+                  "field": "value",
+                  "type": "quantitative",
+                  "title":"Value ",
+                  "scale": {
+                      "type": "threshold",
+                      "domain": { "expr": "domain_range[selection_key]" },
+                      "range": ["#FC2922", "#BD230E", "#8E2015","#5E0A0A"]
+                  }
+              },
+              "tooltip": [
+                  { "field": "properties.NAME", "type": "nominal", "title": "Country" },
+                  { "field": "% of Population with a Netflix Subscription", "type": "quantitative" },
+                  {"field": "# of Netflix Subscribers", "type": "quantitative"},
+                   {"field": "Population", "type": "quantitative"}
+              ]
+          }
+
+
+      }
+  ],
+  "config": {
+    "background":"#00000",
+    "legend":{"titleColor": "white"},
+    "axis": {"disable": true, "grid": false}
+  }
+}

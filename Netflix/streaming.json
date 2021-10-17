@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#00000",
+  "description": "A bar chart that sorts the y-values by the x-values.",
+  "data": {"url": "https://raw.githubusercontent.com/kowvincent/Netflix/main/streaming-subscription-s.csv"},
+  
+  "height": 300,
+"width": 700,
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Category",
+      "type": "ordinal",
+      "sort": "-x",
+      "title" :"Streaming Services",
+      "axis": {
+         "grid": false, 
+         "labelColor": "#ffffff",
+         "labelFont":"Helvetica",      
+         "titleColor": "#ffffff",
+         "titleFont": "Helvetica",
+         "domainOpacity": 1
+        }
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Streaming Subscription Services with the Most Subscribers",
+      "title": "Streaming Subscription Services with the Most Subscribers (in millions)",
+       "axis": {
+          "grid": false, 
+          "labelColor": "#ffffff",
+          "labelFont":"Helvetica ", 
+          "titleColor": "#ffffff",
+          "titleFont": "Helvetica",
+          "domainOpacity": 1
+          }
+    },
+     "color": {
+    "condition": {
+      "test": "datum['Category'] == 'Netflix'", "value": "#E50914"},
+        "value": "#9e9e9e"
+    },
+    "tooltip": [
+      {
+          "field": "Category",
+          "title": "Streaming Service"
+        
+      },
+        {
+          "field": "Streaming Subscription Services with the Most Subscribers",
+          "title": "Subscription Count"
+         
+      }
+      
+]
+  }
+}
